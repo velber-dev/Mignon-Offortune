@@ -1,0 +1,192 @@
+@import '../../assets/scss/variables.scss';
+
+.hero {
+    background: $theme-color;
+    padding: 70px 0;
+
+    &__container {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__title {
+        margin: 20px 0;
+    }
+
+    &__description {
+        text-align: left;
+    }
+
+    &__text {
+        padding-left: 0 !important;
+        align-self: center;
+    }
+
+    &__image-wp {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        justify-self: center;
+        align-self: center;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: $general-color;
+            clip-path: url(#heart);
+            opacity: .2;
+        }
+
+        &::after {
+            content: '';
+            width: calc(100% - (15px + 0.8px) * 2);
+            height: calc(100% - (15px) * 2);
+            clip-path: url(#heart);
+            position: absolute;
+            top: calc(15px);
+            left: calc(15px + 0.8px);
+            background: $theme-color;
+            z-index: 2;
+            opacity: .3;
+            animation: heart 2s ease-in-out infinite;
+        }
+    }
+
+    &__image {
+        width: calc(100% - (15px + 0.8px) * 2);
+        height: calc(100% - (15px) * 2);
+        object-fit: cover;
+        clip-path: url(#heart);
+        position: relative;
+        top: calc(15px);
+        left: calc(15px + 0.8px);
+        z-index: 1;
+        animation: heart 2s ease-in-out infinite;
+    }
+
+    @keyframes heart {
+        0% {
+            width: calc(100% - (15px + 0.8px) * 2);
+            height: calc(100% - (15px) * 2);
+            top: calc(15px);
+            left: calc(15px + 0.8px);
+        }
+
+        50% {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        100% {
+            width: calc(100% - (15px + 0.8px) * 2);
+            height: calc(100% - (15px) * 2);
+            top: calc(15px);
+            left: calc(15px + 0.8px);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        margin-top: 45px;
+        margin-bottom: 40px;
+    }
+
+    &__item {
+        display: flex;
+        column-gap: 14px;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 15px;
+            height: 15px;
+            box-sizing: border-box;
+            position: relative;
+            top: calc(((25px - 15px) / 2) - 1px);
+            border-radius: 50%;
+            border: 1px solid $theme-text-color;
+        }
+    }
+
+    &__item-text {
+        text-align: left;
+    }
+
+    // Media queries //
+
+    @media screen and (max-width: 1230px) {
+        &__container {
+            grid-template-columns: 100%;
+            row-gap: 60px;
+        }
+
+        &__text {
+            text-align: center;
+            padding-right: 0 !important;
+        }
+
+        &__description {
+            text-align: center;
+        }
+
+        &__title br {
+            display: none;
+        }
+
+        &__image-wp {
+            width: 100%;
+            max-width: calc(576px - 60px);
+        }
+
+        &__list {
+            align-items: center;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        &__text {
+            text-align: left;
+            padding-right: 0 !important;
+        }
+
+        &__description {
+            text-align: left;
+        }
+
+        &__title br {
+            display: none;
+        }
+
+        &__list {
+            align-items: flex-start;
+        }
+
+        &__image-wp {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        & {
+            padding: 50px 0;
+        }
+
+        &__container {
+            row-gap: 50px;
+        }
+
+        &__list {
+            margin-top: 30px;
+            margin-top: 35px
+        }
+    }
+}

@@ -1,0 +1,166 @@
+@import "../../assets/scss/variables.scss";
+
+.footer {
+    background: $theme-color;
+    padding: 75px 0;
+    box-sizing: border-box;
+
+    &__container {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "logo nav contacts" "copyright nav developer";
+        row-gap: 30px;
+    }
+
+    &__general {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-rows: 1fr auto;
+    }
+
+    &__logo-wp {
+        display: grid;
+        grid-template-columns: 100%;
+        row-gap: 15px;
+        align-self: flex-start;
+        grid-area: logo;
+    }
+
+    &__logo {
+        padding-bottom: 15px;
+        border-bottom: 1px solid $general-color;
+    }
+
+    &__description {
+        font-size: 14px;
+        width: 100%;
+        display: block;
+        text-align-last: justify;
+    }
+
+    &__copyright {
+        font-size: 13px;
+        grid-area: copyright;
+        align-self: flex-end;
+    }
+
+    &__nav {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        grid-area: nav;
+        row-gap: 0;
+    }
+
+    &__nav-link {
+        padding-top: 0;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        grid-area: contacts;
+    }
+
+    &__phones {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        align-content: flex-end;
+        column-gap: 15px;
+        align-items: center;
+        position: relative;
+        justify-content: flex-end;
+    }
+
+    &__phone {
+        align-self: flex-end;
+    }
+
+    &__social-media {
+        display: flex;
+        column-gap: 15px;
+        margin-top: 25px;
+    }
+
+    &__social-media-icon {
+        height: 30px;
+        width: auto;
+        cursor: pointer;
+
+        * {
+            transition: all 0.25s;
+            fill: $general-color !important;
+        }
+
+        &:hover * {
+            fill: $theme-text-color !important;
+        }
+    }
+
+    .developer {
+        grid-area: developer;
+        font-size: 13px;
+        align-self: flex-end;
+
+        &__link {
+            font-weight: 700;
+            text-decoration: underline;
+            transition: all 0.25s;
+
+            &:hover {
+                color: $theme-text-color;
+            }
+        }
+    }
+
+    // Media queries //
+
+    @media screen and (max-width: 790px) {
+        &__container {
+            grid-template-columns: auto;
+            grid-template-rows: none;
+            justify-content: center;
+            grid-template-areas: "logo" "nav" "contacts" "copyright" "developer";
+            row-gap: 15px;
+        }
+
+        &__nav,
+        &__contacts {
+            align-items: center;
+        }
+
+        &__nav {
+            margin: 30px 0;
+            row-gap: 30px;
+        }
+
+        &__contacts {
+            margin-bottom: 30px;
+        }
+
+        &__description {
+            text-align-last: center;
+        }
+
+        &__copyright,
+        .developer {
+            justify-self: center;
+        }
+
+        &__phones {
+            row-gap: 8px;
+        }
+
+        &__phone {
+            align-self: center;
+
+            .phone__icon {
+                display: none;
+            }
+        }
+    }
+}

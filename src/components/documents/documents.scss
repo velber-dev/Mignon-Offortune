@@ -1,0 +1,126 @@
+@import '../../assets/scss/variables.scss';
+
+.documents {
+    width: 100%;
+    background: $theme-color;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+
+    &__image-wp {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: calc(100% + 135px);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            background: $theme-color;
+            opacity: 0.3;
+            z-index: 2;
+            border-radius: 8px;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: calc(100% + 135px);
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 0 0 17.5px $theme-color;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    &__text {
+        padding: 70px 0;
+        padding-left: 0 !important;
+    }
+
+    &__title {
+        position: relative;
+
+        &::before {
+            content: '';
+        }
+    }
+
+    // Media queries //
+
+    @media screen and (max-width: 1230px) {
+        &__image,
+        &__image-wp::after {
+            height: calc(100% + 95px);
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        &__container {
+            row-gap: 60px;
+        }
+
+        &__image,
+        &__image-wp::after {
+            height: calc(100% + 35px);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        & {
+            padding: 60px 0;
+            box-sizing: border-box;
+        }
+
+        &__text {
+            padding: 0;
+        }
+
+        &__container {
+            grid-template-columns: 100%;
+        }
+
+        &__image {
+            position: static;
+            box-shadow: none;
+            transform: initial;
+            width: calc((100% - 15px * 11) / 12 * 7 + 6 * 15px);
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+
+        &__image-wp::after {
+            height: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc((100% - 15px * 11) / 12 * 7 + 6 * 15px);
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        &__image,
+        &__image-wp::after {
+            width: calc((100% - 15px * 11) / 12 * 10 + 9 * 15px);
+        }
+
+        &__image {
+            box-shadow: 0 0 0 10px #eacdc7;
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        &__image,
+        &__image-wp::after {
+            width: 100%;
+        }
+    }
+}

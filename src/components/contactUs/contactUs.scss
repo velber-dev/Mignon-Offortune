@@ -1,0 +1,105 @@
+@import '../../assets/scss/variables.scss';
+
+.contact-us {
+    background: $theme-color;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+    }
+
+    &__image-wp {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: calc(100% + 40px);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            border-radius: 190px 8px;
+            background: $theme-color;
+            opacity: 0.3;
+            z-index: 2;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: calc(100% + 40px);
+        border-radius: 190px 8px;
+        object-fit: cover;
+        box-shadow: 0 0 0 17.5px $theme-color;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        display: block;
+        transform: translate(0, -50%);
+    }
+
+    &__text {
+        padding: 70px 0;
+        padding-right: 0 !important;
+    }
+
+    &__title {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        &::after {
+            content: '';
+            position: relative;
+            left: 0;
+            transform: initial;
+        }
+    }
+
+    &__button {
+        margin-top: 45px;
+    }
+
+    // Media queries //
+
+    @media screen and (max-width: 992px) {
+        &__container {
+            grid-template-columns: 100%;
+        }
+
+        &__image-wp::after {
+            top: 0;
+        }
+
+        &__image-wp::after,
+        &__image {
+            height: 400px;
+            transform: none;
+        }
+
+        &__image {
+            position: static;
+        }
+
+        &__text {
+            padding: 60px 0;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        &__image {
+            box-shadow: 0 0 0 10px #eacdc7;
+        }
+
+        &__image-wp {
+            margin-bottom: -15px;
+            position: relative;
+            top: -15px;
+        }
+    }
+}

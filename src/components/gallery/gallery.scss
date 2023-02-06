@@ -1,0 +1,122 @@
+@import '../../assets/scss/variables.scss';
+
+.gallery {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        align-items: flex-start;
+    }
+
+    &__column {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+
+        &:last-child {
+            margin-top: 60px;
+        }
+    }
+
+    &__image-wp {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: inherit;
+            border-radius: 8px;
+            background: $theme-color;
+            opacity: 0.15;
+            z-index: 2;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 570px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+    }
+
+    &__more {
+        display: grid;
+        grid-template-areas: '. button .' '. text .';
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 75px;
+        width: 100%;
+    }
+
+    &__button-link {
+        grid-area: button;
+    }
+
+    &__button {
+        width: 100%;
+    }
+
+    &__more-text {
+        margin-top: 15px;
+        color: $theme-text-color;
+        grid-area: text;
+        text-align: center;
+    }
+
+    // Media queries //
+
+    @media screen and (max-width: 992px) {
+        &__title {
+            margin-bottom: 60px;
+        }
+
+        &__grid {
+            gap: 15px;
+        }
+
+        &__column {
+            gap: 15px;
+
+            &:last-child {
+                margin-top: 30px;
+            }
+        }
+
+        &__more {
+            margin-top: 60px;
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        &__more {
+            grid-template-columns: 1fr 3fr 1fr;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        &__grid {
+            grid-template-columns: 100%;
+        }
+
+        &__column {
+            margin-top: 0 !important;
+        }
+
+        &__more {
+            grid-template-columns: 1fr 6fr 1fr;
+        }
+    }
+
+    @media screen and (max-width: 440px) {
+        &__more {
+            grid-template-columns: 0 100% 0;
+        }
+    }
+}
