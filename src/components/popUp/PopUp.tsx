@@ -9,13 +9,11 @@ import {
     BodyClasses,
     modalRoot,
 } from "../generalData/generalData";
+
 import close from "../../assets/img/close.svg";
 
 function Btn({ clazz }: { clazz: string }) {
-    const [popUpShow, setPopUpShow]: [
-        boolean,
-        React.Dispatch<React.SetStateAction<boolean>>
-    ] = useState(false);
+    const [popUpShow, setPopUpShow] = useState<boolean>(1);
 
     const onTogglePopUp = (show: boolean) => {
         setPopUpShow(show);

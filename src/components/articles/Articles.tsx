@@ -6,7 +6,7 @@ function Article({ title, children }: {
     title: string,
     children: string
 }) {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState<boolean>(false);
 
     const onShowArticle = () => {
         setShow(show => !show);

@@ -32,23 +32,16 @@ function windowScrollTo(position: number) {
     });
 }
 
+interface Section {
+    name: string;
+    ref: React.RefObject<HTMLElement>;
+}
+
 interface Sections {
-    aboutUs: {
-        name: string;
-        ref: React.RefObject<HTMLElement>;
-    };
-    gallery: {
-        name: string;
-        ref: React.RefObject<HTMLElement>;
-    };
-    benefits: {
-        name: string;
-        ref: React.RefObject<HTMLElement>;
-    };
-    delivery: {
-        name: string;
-        ref: React.RefObject<HTMLElement>;
-    };
+    aboutUs: Section;
+    gallery: Section;
+    benefits: Section;
+    delivery: Section;
 }
 
 class Navbar {

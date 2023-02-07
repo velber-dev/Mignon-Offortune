@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createRef } from "react";
 
 function useImageSize(ratio: number = 1) {
-    const [imageSize, setImageSize] = useState(0);
+    const [imageSize, setImageSize] = useState<number>(0);
 
     const imageRef: React.RefObject<HTMLImageElement> = createRef();
 

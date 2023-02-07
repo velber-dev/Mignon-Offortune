@@ -13,10 +13,7 @@ import {
 import close from "../../assets/img/close.svg";
 
 function Header() {
-    const [hideMenuShow, setHideMenuShow]: [
-        boolean,
-        React.Dispatch<React.SetStateAction<boolean>>
-    ] = useState(false);
+    const [hideMenuShow, setHideMenuShow] = useState<boolean>(false);
 
     function onToggleHideMenu(show: boolean) {
         if (hideMenuShow !== show) {
