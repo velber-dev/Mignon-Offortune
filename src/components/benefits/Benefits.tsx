@@ -2,15 +2,13 @@ import "./benefits.scss";
 
 import React from "react";
 
-import benefitsIcon, {
-    BenefitsIcons,
-} from "../../assets/img/benefitsIcons/benefitsIcons";
+import benefitsIcon from "../../assets/img/benefitsIcons/benefitsIcons";
 
 function Benefit({
     title,
     children,
 }: {
-    title: keyof BenefitsIcons;
+    title: keyof typeof benefitsIcon;
     children: string;
 }) {
     return (

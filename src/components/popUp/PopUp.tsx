@@ -13,7 +13,7 @@ import {
 import close from "../../assets/img/close.svg";
 
 function Btn({ clazz }: { clazz: string }) {
-    const [popUpShow, setPopUpShow] = useState<boolean>(1);
+    const [popUpShow, setPopUpShow] = useState<boolean>(false);
 
     const onTogglePopUp = (show: boolean) => {
         setPopUpShow(show);
@@ -59,10 +59,7 @@ function PopUp({ closePopUp }: { closePopUp: () => void }) {
         Message = "message",
     }
 
-    const [formData, updateFormData]: [
-        FormDataConfig,
-        React.Dispatch<React.SetStateAction<FormDataConfig>>
-    ] = useState({
+    const [formData, updateFormData] = useState<FormDataConfig>({
         name: "",
         phone: "",
         message: "",
@@ -95,13 +92,15 @@ function PopUp({ closePopUp }: { closePopUp: () => void }) {
 
             resolve(data);
         })
-            .then((data: any) => {
-                fetch("assets/services/mail.php", {
-                    method: "POST",
-                    body: data,
-                }).then(() => {
-                    document.location.href = document.location.href;
-                });
+            .then((data) => {
+                if(data instanceof FormData) {
+                    fetch("assets/services/mail.php", {
+                        method: "POST",
+                        body: data,
+                    }).finally(() => {
+                        document.location.href = document.location.href;
+                    });
+                }
             })
             .catch(() => {
                 console.log("Complete all fields!");

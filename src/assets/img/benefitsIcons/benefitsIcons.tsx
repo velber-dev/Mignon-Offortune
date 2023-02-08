@@ -1,13 +1,4 @@
-export interface BenefitsIcons {
-    Aliments: JSX.Element;
-    Vermifugation: JSX.Element;
-    Santé: JSX.Element;
-    Aimer: JSX.Element;
-    "Développement physique": JSX.Element;
-    Psyché: JSX.Element;
-}
-
-const benefitsIcons: BenefitsIcons = {
+const benefitsIcons = {
     Aliments: (
         <svg
             className="benefits__benefit-icon"

@@ -32,16 +32,11 @@ function windowScrollTo(position: number) {
     });
 }
 
-interface Section {
-    name: string;
-    ref: React.RefObject<HTMLElement>;
-}
-
 interface Sections {
-    aboutUs: Section;
-    gallery: Section;
-    benefits: Section;
-    delivery: Section;
+    [key: string]: {
+        name: string;
+        ref: React.RefObject<HTMLElement>;
+    }
 }
 
 class Navbar {
@@ -100,10 +95,9 @@ class Navbar {
 
         let links = [];
         
-        let key: keyof Sections,
-            i = 0;
+        let i = 0;
 
-        for (key in Navbar.sections) {
+        for (let key in Navbar.sections) {
             i++;
 
             links.push(
